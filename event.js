@@ -1,34 +1,30 @@
-const title = document.getElementById("title");
-title.innerHTML = `Hello!`;
+const h2 = document.querySelector("h2");
+const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 
-const color = ["#9e90bc", "#bc4a48", "#0c6d8c", "#f2ae58"];
-
-function superEventHandler() {
-  let enterEventCounr = 0;
-  let leaveEventCount = 0;
-  let buttonEventCount = 0;
-
-  title.addEventListener("mouseenter", (event) => {
-    title.innerHTML = `Mouse is here!`;
-    title.style.color = color[0];
-    enterEventCounr++;
-  });
-  title.addEventListener("mouseleave", (event) => {
-    title.innerHTML = `Mouse is gone!`;
-    title.style.color = color[1];
-    leaveEventCount++;
-  });
-  window.addEventListener("mouseup", (event) => {
-    event.button === "2";
-    title.innerHTML = `right!`;
-    title.style.color = color[2];
-    buttonEventCount++;
-  });
-  function handleResize() {
-    title.innerHTML = `I have been resized`;
-    title.style.color = color[3];
+const superEventHandler = {
+  handleEnter: function() {
+    h2.innerText = "The mouse is here!";
+    h2.style.color = colors[0];
+  },
+  handleLeave: function() {
+    h2.innerText = "The mouse is gone!";
+    h2.style.color = colors[1];
+  },
+  handleResize: function() {
+    h2.innerText = "You just resized!";
+    h2.style.color = colors[2];
+  },
+  handleSelect: function() {
+    h2.innerText = "You're selecting me!";
+    h2.style.color = colors[3];
+  },
+  handleContext: function() {
+    h2.innerHTML = "That was a right click!";
+    h2.style.color = colors[4];
   }
-  window.addEventListener("resize", handleResize);
-}
+};
 
-superEventHandler();
+h2.addEventListener("mouseenter", superEventHandler.handleEnter);
+h2.addEventListener("mouseleave", superEventHandler.handleLeave);
+window.addEventListener("resize", superEventHandler.handleResize);
+window.addEventListener("contextmenu", superEventHandler.handleContext);

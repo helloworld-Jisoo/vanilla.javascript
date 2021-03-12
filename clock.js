@@ -1,7 +1,7 @@
 const clock = document.querySelector(".clock");
 
 function getChristmas() {
-  const christmas = new Date('December 25, 2020 00:00:00 GMT0000');
+  const christmas = new Date("2021-12-24:00:00:00+0900");
   const now = new Date();
   const gap = christmas.getTime()- now.getTime(); 
   const second = 1000,

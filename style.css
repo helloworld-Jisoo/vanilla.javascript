@@ -1,14 +1,19 @@
 body {
-  background-color: #00b7c3;
-}
-.width_lg {
-  background-color: #ffb900;
+  font-family: sans-serif;
 }
 
-.width_md {
-  background-color: #9a0089;
+h2 {
+  color: white;
 }
 
-.width_sm {
-  background-color: #0063b1;
+.bigScreen {
+  background-color: #f1c40f;
+}
+
+.mediumScreen {
+  background-color: #9b59b6;
+}
+
+.smallScreen {
+  background-color: #3498db;
 }
